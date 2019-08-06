@@ -1,5 +1,6 @@
 class ToysController < ApplicationController
   before_action :set_toy, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: :index
 
   def index
     @toys = Toy.all
@@ -10,11 +11,13 @@ class ToysController < ApplicationController
 
   def new
     @toy = Toy.new
+    authorize @toy
   end
 
   def create
     @user = current_user
     @toy = Toy.new(toy_params)
+    authorize @toy
     @toy.user = @user
     if @toy.save
       redirect_to dashboard_path
@@ -24,14 +27,17 @@ class ToysController < ApplicationController
   end
 
   def edit
+    authorize @toy
   end
 
   def update
     @toy.update(toy_params)
+    authorize @toy
   end
 
   def destroy
     @toy.destroy
+    authorize @toy
     redirect
   end
 
