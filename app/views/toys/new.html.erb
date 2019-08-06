@@ -8,7 +8,7 @@
       <%= f.input :address %>
       <%= f.input :daily_price %>
       <%= f.input :min_age %>
-      <%= f.input :theme_id %>
+      <%= f.input :theme_id, collection: Theme.order(:name),  prompt: "Pick one from list" %>
       <%= f.submit "Submit", class: "btn btn-primary" %>
       <%= link_to "Go back", toys_path, class: "btn btn-warning" %>
     <% end %>

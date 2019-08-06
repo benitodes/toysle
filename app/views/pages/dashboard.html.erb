@@ -4,4 +4,9 @@
 
 <% @toys.each do |toy| %>
    <h2><%= toy.name %></h2>
+   <h2><%= toy.description %></h2>
+   <h2><%= toy.address %></h2>
+   <h2><%= toy.daily_price %></h2>
+   <h2><%= toy.min_age %></h2>
+   <h2><%= toy.theme.name %></h2>
 <% end %>
