@@ -1,2 +1,15 @@
 <h1>Toys#new</h1>
 <p>Find me in app/views/toys/new.html.erb</p>
+
+ <div class="">
+    <%= simple_form_for @toy do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :address %>
+      <%= f.input :daily_price %>
+      <%= f.input :min_age %>
+      <%= f.input :theme_id %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+      <%= link_to "Go back", toys_path, class: "btn btn-warning" %>
+    <% end %>
+</div>

@@ -10,6 +10,7 @@ class ToysController < ApplicationController
   end
 
   def new
+    @user = current_user
     @toy = Toy.new
     authorize @toy
   end
@@ -22,7 +23,7 @@ class ToysController < ApplicationController
     if @toy.save
       redirect_to dashboard_path
     else
-      render "pages/dashboard"
+      render "new"
     end
   end
 
@@ -46,7 +47,7 @@ class ToysController < ApplicationController
   end
 
   def toy_params
-    params.require(:toy).permit(:name, :description, :address, :daily_price, :max_age, :theme_id)
+    params.require(:toy).permit(:name, :description, :address, :daily_price, :min_age, :theme_id, :user_id)
   end
 
 end
