@@ -40,6 +40,7 @@ class ToysController < ApplicationController
     @toy.destroy
     authorize @toy
     redirect
+    redirect_to dashboard_path
   end
 
   def set_toy

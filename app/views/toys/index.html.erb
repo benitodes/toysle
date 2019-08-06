@@ -3,6 +3,8 @@
 
 <% @toys.each do |toy| %>
    <h2><%= toy.name %></h2>
+   <%= link_to "View this toy", toy_path(toy), class: 'btn-ghost' %>
+
 <% end %>
 
-rest
+

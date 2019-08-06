@@ -5,6 +5,10 @@ class ToyPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    record.user == user
+  end
+
   def index?
     true
   end
