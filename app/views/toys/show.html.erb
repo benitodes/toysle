@@ -5,5 +5,8 @@
 <%= link_to "Back to index", toys_path, class: "btn-ghost" %>
 <%= link_to "Update toy", edit_toy_path(@toy), class: "btn btn-danger" %>
 <%= link_to "Delete Cocktail", toy_path(@toy), method: :delete, class: "btn btn-danger" %>
-<%= link_to "Add booking", class: "btn btn-primary" %>
 
+<%= simple_form_for [@toy, @booking] do |f|%>
+  <%= f.input :start_date, html5: true %>
+  <%= f.button :submit, value: :Book, class: "btn btn-primary" %>
+<% end %>
