@@ -33,7 +33,7 @@ class ToysController < ApplicationController
 
   def destroy
     @toy.destroy
-    redirect
+    redirect_to dashboard_path
   end
 
   def set_toy
