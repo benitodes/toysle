@@ -7,6 +7,7 @@ class ToysController < ApplicationController
   end
 
   def show
+    authorize @toy
   end
 
   def new
@@ -39,7 +40,6 @@ class ToysController < ApplicationController
   def destroy
     @toy.destroy
     authorize @toy
-    redirect
     redirect_to dashboard_path
   end
 
