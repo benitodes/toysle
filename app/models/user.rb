@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :toys
   has_many :reviews, through: :bookings
 
+  # no need to add validations with devise
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
