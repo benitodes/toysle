@@ -6,5 +6,4 @@ class PagesController < ApplicationController
     @user = current_user
     @toys = @user.toys
   end
-
 end
