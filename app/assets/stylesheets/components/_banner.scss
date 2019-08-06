@@ -1,0 +1,42 @@
+body, html {
+  height: 100%;
+}
+
+.container-banner {
+  margin-left: 140px;
+  margin-top: 40px;
+  position: absolute;
+  z-index: 2;
+}
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  background-image: asset-url('banner.jpg');
+  height: 100%;
+  background-repeat: no-repeat;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.banner p {
+  font-size: 24px;
+  color: #EC008C;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+}
+.banner a {
+  display: block;
+  max-width: 300px;
+  margin: auto;
+}
