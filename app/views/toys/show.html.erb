@@ -1,2 +1,9 @@
 <h1>Toys#show</h1>
 <p>Find me in app/views/toys/show.html.erb</p>
+
+<h1><%= @toy.name %></h1>
+<%= link_to "Back to index", toys_path, class: "btn-ghost" %>
+<%= link_to "Update toy", edit_toy_path(@toy), class: "btn btn-danger" %>
+<%= link_to "Delete Cocktail", toy_path(@toy), method: :delete, class: "btn btn-danger" %>
+<%= link_to "Add booking", class: "btn btn-primary" %>
+

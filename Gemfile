@@ -15,13 +15,21 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
+<<<<<<< HEAD
 
+=======
+gem 'pundit'
+gem 'faker'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+>>>>>>> 7e9753cc5fc40d42d6ac25f96717bb4494de6740
 
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
