@@ -2,11 +2,55 @@
 <p>Find me in app/views/pages/dashboard.html.erb</p>
 
 
-<% @toys.each do |toy| %>
-   <h2><%= toy.name %></h2>
-   <h2><%= toy.description %></h2>
-   <h2><%= toy.address %></h2>
-   <h2><%= toy.daily_price %></h2>
-   <h2><%= toy.min_age %></h2>
-   <h2><%= toy.theme.name %></h2>
-<% end %>
+
+
+
+<div class="container mt-3">
+  <%= cl_image_tag @user.avatar, height: 50, width: 50, crop: :fill, class: 'avatar-large' %>
+  <%= link_to "edit", edit_user_registration_path(current_user) %>
+
+
+
+
+
+  <% @toys.each_slice(3) do |row| %>
+    <div class="row">
+      <% row.each do |toy| %>
+        <div class="col-md-4 mt-3">
+          <div class="card_toy">
+              <%= cl_image_tag("toy1_cvw3t4", width: 400, height: 300, crop: :fill) %>
+            <div class="title_box">
+              <h2><%= toy.name %></h2>
+              <div class="star_box">
+              <span><i class="fas fa-star"></i></span>
+              <span><i class="fas fa-star"></i></span>
+              <span><i class="fas fa-star"></i></span>
+              <span><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+            <p><%= toy.description%></p>
+                  <p><%= toy.min_age %></p>
+                  <p><%= toy.theme[:name] %></p>
+          <div class="address_box">
+            <i class="fas fa-map-marker-alt"></i>
+              xxx m
+          </div>
+            <div class="price_box">
+              <div class="price_box_price">
+                <%= toy.daily_price %>$
+              </div>
+            <div class="price_box_text">
+                FOR XX DAY
+             </div>
+            </div>
+            <div class="card_toy_button">
+                <%= link_to "Edit", edit_toy_path(toy), class: 'btn-ghost' %>
+              </div>
+
+            </div>
+
+          </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

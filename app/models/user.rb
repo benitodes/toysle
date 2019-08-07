@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   # no need to add validations with devise
 
+  mount_uploader :avatar, PhotoUploader
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
