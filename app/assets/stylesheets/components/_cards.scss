@@ -52,6 +52,85 @@
     text-align: center;
 }
 
+
+// cards for toy show page
+
+.container_single_toy {
+  background: white;
+  padding: 16px;
+  background-color: #F4F4F4;
+}
+
+.card_single_toy {
+  background: #F4F4F4;
+  margin-top: 16px;
+  // box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  height: -webkit-fill-available;
+}
+
+.card_single_toy {
+  img {
+    vertical-align: left;
+    border-style: none;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    position: relative;
+    border-radius: 5px;
+    margin-right: 16px;
+    margin-bottom: 40px;
+  }
+}
+
+.toy_picture {
+  height: 500px;
+  margin-bottom: 80px;
+}
+
+.card_toy_content {
+  margin: 24px;
+  padding: 16px;
+  background: white;
+  width: 900px;
+  border: solid 1px;
+  border-color: #dadddf;
+  border-radius: 2%;
+}
+
+.card_toy_booking {
+  margin-left: 16px;
+  width: 500px;
+  margin: 24px;
+  padding: 16px;
+  background: white;
+  border: solid 1px;
+  border-color: #dadddf;
+  border-radius: 2%;
+  height: 400px;
+  position: sticky;
+  top: 40px;
+}
+
+.card_single_toy p {
+  margin-top: 32px;
+  font-size: 16px;
+  opacity: .7;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-box-align: start;
+  line-height: 32px;
+  max-height: 45px;
+}
+
+.show_toy_button {
+  margin-top: 56px;
+}
+
+
+
 // price box on the card
 
 .price_box {
@@ -95,6 +174,11 @@
   color: white;
   padding-top: 6px;
   font-size: 17px;
+}
+
+#toy-booking-dates input[type="text"] {
+  width: 300px;
+  margin-top: 8px;
 }
 
 // Title and stars
