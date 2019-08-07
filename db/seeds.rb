@@ -45,7 +45,7 @@ toy_list = [
     'Canggu', 9, 10, 2, 2, 'https://www.verywellfamily.com/thmb/KmESiEvNWE49p4uI54vGiBBuHds=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/mega-rocket-583e05053df78c6f6a75a361.jpg'],
 
   ['Zipline Set', "Did you know you can enjoy a ziplining adventure right in your own backyard? This kit supplies everything you need.
-Anyone who's over 7 years old and under 250 pounds can use it.", 'Canggu', 12, 11, 1, 3, 'https://www.verywellfamily.com/thmb/FKDpWmy_qeJIH5iEZXx8M7dJkxA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/zipline-kit-56a2c9fd5f9b58b7d0ce8bd8.jpg'],
+Anyone who's over 7 years old and under 250 pounds can use it.", 'Canggu', 12, 11, 1, 3, 'https://www.coloradozipline.net/wp-content/uploads/2013/11/IMG_0072-1024x682.jpg'],
 
   ['Rollors', "This unique lawn game combines characteristics of horseshoes, bocce ball and bowling. Players roll their disks to the goal, aiming to get closest. It takes skill, but there's an element of chance too.
 The set weighs just 3 pounds and comes with a travel bag, and you can also buy an expansion pack.", "Bali", 7, 5, 1, 3,
