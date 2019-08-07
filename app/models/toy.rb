@@ -9,6 +9,10 @@ class Toy < ApplicationRecord
   validates :daily_price, presence: true
   validates :address, presence: true
 
+  # geocode:
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   # **Flatpickr** will plug into each of the date fields to display a nice date-picker, but before we do that,
   #   we need our backend to send to the front-end a list of all the **unavailable dates**.
   #   Accordingly to **flatpickr**’s documentation, it is possible to pass an **option** to **disable** dates
@@ -20,5 +24,4 @@ class Toy < ApplicationRecord
       { from: range[0], to: range[1] }
     end
   end
-
 end

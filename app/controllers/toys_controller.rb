@@ -3,7 +3,17 @@ class ToysController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @toys = Toy.all
+    # @toys = Toy.all
+    @toys = Toy.geocoded #returns flats with coordinates
+
+    @markers = @toys.map do |toy|
+      {
+        lat: toy.latitude,
+        lng: toy.longitude,
+        # Open an info window when I click on the marker
+        infoWindow: render_to_string(partial: "info_window", locals: { toy: toy })
+      }
+    end
   end
 
   def show
