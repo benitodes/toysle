@@ -1,15 +1,17 @@
-<h1>Toys#new</h1>
-<p>Find me in app/views/toys/new.html.erb</p>
+<div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
+  <h1>Tell us about the toy you want to rent</h1>
+</div>
 
- <div class="">
-    <%= simple_form_for @toy do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :address %>
-      <%= f.input :daily_price %>
-      <%= f.input :min_age %>
-      <%= f.input :theme_id, collection: Theme.order(:name),  prompt: "Pick one from list" %>
-      <%= f.submit "Submit", class: "btn btn-primary" %>
-      <%= link_to "Go back", toys_path, class: "btn btn-warning" %>
-    <% end %>
+<div class="container" style="background-color:white; max-width:700px">
+      <%= simple_form_for @toy do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :address %>
+        <%= f.input :daily_price %>
+        <%= f.input :min_age %>
+        <%= f.input :theme_id, collection: Theme.order(:name),  prompt: "Pick one from list" %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+        <%= link_to "Go back", toys_path, class: "btn btn-warning" %>
+      <% end %>
+  </div>
 </div>

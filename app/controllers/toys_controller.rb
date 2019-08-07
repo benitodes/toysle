@@ -18,6 +18,7 @@ class ToysController < ApplicationController
 
   def show
     authorize @toy
+    @booking = Booking.new
   end
 
   def new
