@@ -1,4 +1,15 @@
 class ApplicationController < ActionController::Base
+ # ========HEAD
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    # devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password,
+    #   :password_confirmation, :remember_me, :avatar, :avatar_cache, :remove_avatar) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password,
+      :password_confirmation, :current_password, :avatar) }
+
   # [...]
   before_action :authenticate_user!
   include Pundit
@@ -16,7 +27,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
-  end
+  # def skip_pundit?
+  #   devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/2a4c84fb3ec9d3bdce6d42dc3b26440b3e8025bc
+  # end
+end
 end
