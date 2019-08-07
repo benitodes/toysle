@@ -1,12 +1,13 @@
 <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
   <h1>You want to rent a toy ? that's here!</h1>
 </div>
+
  <% @toys.each_slice(3) do |row| %>
     <div class="row">
       <% row.each do |toy| %>
         <div class="col-md-4 mt-3">
           <div class="card_toy">
-              <%= cl_image_tag("toy1_cvw3t4", width: 400, height: 300, crop: :fill) %>
+              <%= image_tag toy.picture, width: 400, height: 300, crop: :fill %>
             <div class="title_box">
               <h2><%= toy.name %></h2>
               <div class="star_box">
@@ -28,7 +29,7 @@
                 <%= toy.daily_price %>$
               </div>
             <div class="price_box_text">
-                FOR XX DAY
+                PER DAY
              </div>
             </div>
             <div class="card_toy_button">
