@@ -74,13 +74,13 @@
 }
 
 .card_single_toy {
-  background: #F4F4F4;
+  //background: #F4F4F4;
   margin-top: 16px;
   // box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border-radius: 5px;
   display: flex;
-  justify-content: space-around;
-  height: -webkit-fill-available;
+  //justify-content: space-around;
+  //height: -webkit-fill-available;
 }
 
 .card_single_toy {
@@ -93,7 +93,7 @@
     position: relative;
     border-radius: 5px;
     margin-right: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 }
 
@@ -122,23 +122,23 @@
   border-color: #dadddf;
   border-radius: 2%;
   height: 400px;
-  position: sticky;
-  top: 40px;
+  //position: sticky;
+  //top: 40px;
 }
 
 .card_single_toy p {
-  margin-top: 32px;
+  margin-top: 16px;
   font-size: 16px;
   opacity: .7;
   display: flex;
   -webkit-box-pack: justify;
   -webkit-box-align: start;
   line-height: 32px;
-  max-height: 45px;
+  //max-height: 45px;
 }
 
 .show_toy_button {
-  margin-top: 56px;
+  margin-top: 30px;
 }
 
 // price box on the card
@@ -193,6 +193,10 @@
 
 .title_box{
   position: relative;
+}
+
+.title_box p {
+  margin: 2px;
 }
 
 .star_box {
