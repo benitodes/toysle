@@ -1,0 +1,18 @@
+development:
+  cloud_name: dxx1c1rby
+  api_key: '424598715895951'
+  api_secret: GaD9HIKCMojN9kE6K77s5H9tII0
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dxx1c1rby
+  api_key: '424598715895951'
+  api_secret: GaD9HIKCMojN9kE6K77s5H9tII0
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dxx1c1rby
+  api_key: '424598715895951'
+  api_secret: GaD9HIKCMojN9kE6K77s5H9tII0
+  enhance_image_tag: true
+  static_file_support: false
