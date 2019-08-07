@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-  belongs_to :toy, counter_cache: true
+  belongs_to :toy
   belongs_to :user
   has_one :review, dependent: :destroy
   # validations
@@ -7,9 +7,7 @@ class Booking < ApplicationRecord
   validates :total_price, presence: true
   validate :end_date_after_start_date
 
-
   private
-
 
   # The private method **end_date_after_start_date** validates that the *end_date* is not before the *start_date*.
   # If it is, we add an **error** to the **ActiveRecord object**.
@@ -25,12 +23,4 @@ class Booking < ApplicationRecord
       errors.add(:end_date, "must be after the start date")
     end
   end
-
 end
-
-
-
-
-
-
-# questions: counter_cache, validate method line 9

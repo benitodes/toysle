@@ -6,9 +6,6 @@
 <%= link_to "Update toy", edit_toy_path(@toy), class: "btn btn-danger" %>
 <%= link_to "Delete Cocktail", toy_path(@toy), method: :delete, class: "btn btn-danger" %>
 
-
-
-
 <div id='toy-booking-dates' data-unavailable="<%= @toy.unavailable_dates.to_json %>">
  <!--  do not display booking form if current user is owner of toy -->
   <% if current_user.id != @toy.user_id  %>

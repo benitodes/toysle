@@ -15,7 +15,7 @@ const flatpicker = () => {
     const unavailableDates = JSON.parse(document.querySelector('#toy-booking-dates').dataset.unavailable)
 
   flatpickr(date, {
-    //here you insert all the options
+    // insert all flatpickr options
     mode: "range",
     minDate: "today",
     disable: unavailableDates,
