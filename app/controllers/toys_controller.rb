@@ -19,6 +19,7 @@ class ToysController < ApplicationController
   def show
     authorize @toy
     @booking = Booking.new
+    @toy.geocoded
   end
 
   def new
