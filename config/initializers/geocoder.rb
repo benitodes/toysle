@@ -1,3 +1,5 @@
+# rails generate geocoder:config
+
 Geocoder.configure(
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
