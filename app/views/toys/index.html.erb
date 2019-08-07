@@ -18,8 +18,10 @@
             </div>
           </div>
             <p><%= toy.description%></p>
-                  <p><%= toy.min_age %></p>
-                  <p><%= toy.theme[:name] %></p>
+          <div class="product-details">
+            <h3>min age : <%= toy.min_age %></h3>
+            <h3>category : <%= toy.theme[:name] %></h3>
+          </div>
           <div class="address_box">
             <i class="fas fa-map-marker-alt"></i>
               xxx m
