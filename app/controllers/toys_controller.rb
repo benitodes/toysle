@@ -18,8 +18,13 @@ class ToysController < ApplicationController
 
   def show
     authorize @toy
+    @markers = [{
+      lat: @toy.latitude,
+      lng: @toy.longitude,
+      # Open an info window when I click on the marker
+      infoWindow: render_to_string(partial: "info_window", locals: { toy: @toy })
+    }]
     @booking = Booking.new
-    @toy.geocoded
   end
 
   def new

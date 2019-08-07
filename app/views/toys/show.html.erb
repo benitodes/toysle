@@ -1,12 +1,7 @@
 <div class="container_single_toy">
-
   <div class="card_single_toy ">
-
     <div class="card_toy_content">
-
       <%= cl_image_tag(@toy.picture, crop: :fill) %>
-
-
       <div class="title_box">
         <h2><%= @toy.name %></h2>
         <p><strong> Min Age:</strong> <%=  @toy.min_age %> </p>
@@ -17,41 +12,39 @@
         <%= link_to "Back to index", toys_path, class: "btn-ghost" %>
       </div>
     </div>
+    <div>
+      <div class="card_toy_booking">
+        <div>
+          <p>Your rental from </p>
+          <h2><%= @toy.user.first_name + " " + @toy.user.last_name %></h2>
+        </div>
+        <p><%= @toy.daily_price %>$ per day</p>
 
-    <div class="card_toy_booking">
-      <div>
-        <p>Your rental from </p>
-        <h2><%= @toy.user.first_name + " " + @toy.user.last_name %></h2>
+        <div class="price_box_text">
+        </div>
+
+        <div id='toy-booking-dates' data-unavailable="<%= @toy.unavailable_dates.to_json %>">
+         <!--  do not display booking form if current user is owner of toy -->
+         <% if current_user.id != @toy.user_id  %>
+         <%= simple_form_for [@toy, @booking] do |f|%>
+         <%= f.label :start_date, 'Dates'  %>
+         <%= f.input :start_date, html5: true, label: false %>
+         <%= f.button :submit, value: :Checkout, class: "btn btn-primary btn-checkout" %>
+         <% end %>
+         <% end %>
+       </div>
       </div>
-      <p><%= @toy.daily_price %>$ per day</p>
-
-
-      <div class="price_box_text">
+      <div class="container">
+        <div
+        class="card_show"
+        id="map"
+        style="width: auto"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+       ></div>
       </div>
-
-
-      <div id='toy-booking-dates' data-unavailable="<%= @toy.unavailable_dates.to_json %>">
-       <!--  do not display booking form if current user is owner of toy -->
-       <% if current_user.id != @toy.user_id  %>
-       <%= simple_form_for [@toy, @booking] do |f|%>
-       <%= f.label :start_date, 'Dates'  %>
-       <%= f.input :start_date, html5: true, label: false %>
-       <%= f.button :submit, value: :Checkout, class: "btn btn-primary btn-checkout" %>
-       <% end %>
-       <% end %>
-     </div>
-   </div>
+    </div>
  </div>
+
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
