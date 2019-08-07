@@ -16,26 +16,16 @@ class ApplicationController < ActionController::Base
 
     # [...]
 
-<<<<<<< HEAD
-  # Uncomment when you *really understand* Pundit!
-  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  # def user_not_authorized
-  #   flash[:alert] = "You are not authorized to perform this action."
-  #   redirect_to(root_path)
-  end
   end
     # Uncomment when you *really understand* Pundit!
     # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
     # def user_not_authorized
     #   flash[:alert] = "You are not authorized to perform this action."
     #   redirect_to(root_path)
+    # end
 
     private
 
-<<<<<<< HEAD
-  def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/2a4c84fb3ec9d3bdce6d42dc3b26440b3e8025bc
-  end
     def skip_pundit?
       devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
     end
