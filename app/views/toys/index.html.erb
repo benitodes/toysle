@@ -54,9 +54,10 @@
         <p>Themes</p>
     </div>
      <%= simple_form_for :query do |f| %>
-      <% @themes.each do |t| %>
-       <%= f.input (t.name).to_sym, as: :select, collection: Theme.all %>
-      <% end %>
+      <%= f.input :theme, collection: Theme.all %>
+      <%# @themes.each do |t| %>
+       <%#= f.input (t.name).to_sym, as: :select, collection: Theme.all %>
+      <%# end %>
      <% end %>
 
   </div>
