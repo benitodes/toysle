@@ -1,5 +1,7 @@
 import flatpickr from "flatpickr";
 
+// function to display calendar on toy show page
+
 const flatpicker = () => {
 
   // fetch user input
@@ -24,6 +26,14 @@ const flatpicker = () => {
   });
   }
 }
+
+
+// function to display calendar in filterbar on toys page
+
+$("#rangeDate").flatpickr({
+    mode: 'range',
+    dateFormat: "Y-m-d"
+});
 
 export { flatpicker }
 

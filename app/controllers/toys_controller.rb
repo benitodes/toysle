@@ -5,7 +5,7 @@ class ToysController < ApplicationController
   def index
     # @toys = Toy.all
     @toys = Toy.geocoded #returns flats with coordinates
-
+    @themes = Theme.all
     @markers = @toys.map do |toy|
       {
         lat: toy.latitude,

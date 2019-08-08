@@ -17,21 +17,51 @@
 
   <div>
     <div class="btn-ghost btn-filter">
-        <p>Age</p>
+        <p>Minimum Age</p>
     </div>
 
     <div>
-      <form action="/toys" id="slider-form">
+      <form action="/toys" id="age-slider-form">
         <input id="age" data-slider-id='ageSlider' type="text" data-slider-min="5" data-slider-max="16" data-slider-step="1" data-slider-value="" />
         <input type="submit" value="Save" id="minAgeInput" class="btn-ghost">
       </form>
     </div>
+  </div>
 
-<!--     <div>
-       Filter by price per day: <b>€ 5</b> <input id="price" type="text" class="span2" value="" data-slider-min="5" data-slider-max="100" data-slider-step="5" data-slider-value="[5,100]"/> <b>€ 100</b>
-    </div> -->
+  <div>
+    <div class="btn-ghost btn-filter">
+        <p>Price</p>
+    </div>
+    <div>
+      <form action="/toys" id="price-slider-form">
+          Filter by price per day: <b>€ 5 </b> <input id="price" type="text" class="span2" value="" data-slider-min="5" data-slider-max="100" data-slider-step="5" data-slider-value="[5,100]"/> <b> € 100</b>
+        <input type="submit" value="Save" id="priceInput" class="btn-ghost">
+      </form>
+    </div>
+  </div>
+
+  <div id="date-form">
+    <div class="btn-ghost btn-filter">
+        <p>Dates</p>
+    </div>
+    <div>
+      <input type="text" id="rangeDate" placeholder="Please select Date Range" data-input>
+    </div>
+  </div>
+
+  <div>
+    <div class="btn-ghost btn-filter">
+        <p>Themes</p>
+    </div>
+     <%= simple_form_for :query do |f| %>
+      <% @themes.each do |t| %>
+       <%= f.input (t.name).to_sym, as: :select, collection: Theme.all %>
+      <% end %>
+     <% end %>
 
   </div>
+
+</div>
 
 </div>
 
