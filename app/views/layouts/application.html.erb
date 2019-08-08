@@ -34,7 +34,7 @@
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#"> <%= link_to "Your rentals", dashboard_path, class: "nav-link" %></a>
                 <a class="dropdown-item" href="#"> <%= link_to "Your paiements", dashboard_path, class: "nav-link" %></a>
-                <a class="dropdown-item" href="#"> <%= link_to "My profile", dashboard_path, class: "nav-link" %></a>
+                <a class="dropdown-item" href="#"> <%= link_to "Edit profile", edit_user_registration_path, class: "nav-link" %></a>
                 <a class="dropdown-item" href="#"><%= link_to "Sign-out", destroy_user_session_path, method: :delete, class: "nav-link" %></a>
               </div>
         </li>
