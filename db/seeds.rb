@@ -73,8 +73,10 @@ The set weighs just 3 pounds and comes with a travel bag, and you can also buy a
 #create new toys from array
 
 toy_list.each do |name, description, address, daily_price, min_age, theme_id, user_id, picture|
-  Toy.create!( name: name, description: description, address: address, daily_price: daily_price,
-    min_age: min_age, theme_id: theme_id, user_id: user_id, picture: picture)
+  toy = Toy.new( name: name, description: description, address: address, daily_price: daily_price,
+    min_age: min_age, theme_id: theme_id, user_id: user_id)
+    toy.remote_picture_url = picture
+    toy.save
 end
 
 puts "toys have been created"

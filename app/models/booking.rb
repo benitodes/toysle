@@ -7,6 +7,10 @@ class Booking < ApplicationRecord
   validates :total_price, presence: true
   validate :end_date_after_start_date
 
+  def finish?
+    Date.today > self.end_date
+  end
+
   private
 
   # The private method **end_date_after_start_date** validates that the *end_date* is not before the *start_date*.

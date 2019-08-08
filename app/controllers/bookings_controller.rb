@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path
     else
-      render 'toy/show'
+      render 'toys/show'
     end
   end
 
@@ -44,5 +44,6 @@ class BookingsController < ApplicationController
   def is_available?
 
   end
+
 
 end
