@@ -6,16 +6,16 @@
 <!--     <a><%#= link_to "Find a toy", toys_path, class: "btn btn-flat" %></a>
 -->
 
-      <%= form_tag toys_path, class: "home-search", method: :get do %>
-      <div class="d-flex justify">
-      <%= text_field_tag :toy_address,
-      params[:toy_address],
-      class: "form-control input-home-address",
-        placeholder: "Enter an address"
-        %>
-        <%= submit_tag "Search", class: "btn btn-flat ml-4" %>
-        <% end %>
-      </div>
+<%= form_tag toys_path, class: "home-search", method: :get do %>
+<div class="d-flex justify">
+  <%= text_field_tag :toy_address,
+  params[:toy_address],
+  class: "form-control input-home-address",
+    placeholder: "Enter an address"
+    %>
+    <%= submit_tag "Search", class: "btn btn-flat ml-4" %>
+    <% end %>
   </div>
+</div>
 </div>
 

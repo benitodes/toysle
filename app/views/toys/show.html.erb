@@ -19,13 +19,14 @@
           <h2><%= @toy.user.first_name + " " + @toy.user.last_name %></h2>
         </div>
         <p><%= @toy.daily_price %>$ per day</p>
+        <h2>Total Price</h2>
 
         <div class="price_box_text">
         </div>
 
         <div id='toy-booking-dates' data-unavailable="<%= @toy.unavailable_dates.to_json %>">
          <!--  do not display booking form if current user is owner of toy -->
-         <% if current_user.id != @toy.user_id  %>
+         <% if current_user != @toy.user  %>
            <%= simple_form_for [@toy, @booking] do |f|%>
              <%= f.label :start_date, 'Dates'  %>
              <%= f.input :start_date, html5: true, label: false %>
