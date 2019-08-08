@@ -1,13 +1,14 @@
 .filterbar {
   background: white;
-  height: 80px;
+  height: 100px;
+  display: flex;
+  // justify-content: flex-start;
+  align-items: center;
+  padding: 16px;
 }
 
 .filterbar .navbar-collapse {
   flex-grow: 0;
 }
 
-// .btn-filter {
-//   width: 100%;
-// }
 

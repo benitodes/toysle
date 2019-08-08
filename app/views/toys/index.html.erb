@@ -5,8 +5,32 @@
 
 <!-- filter bar  -->
 <div class="filterbar">
-   <div class="btn-ghost">
-        <p>this is a test</p>
+
+<!--   <div>
+    <div class="btn-ghost btn-filter">
+        <p>Booking</p>
+    </div>
+    <div class="btn-ghost btn-filter">
+        Calendar
+    </div>
+  </div> -->
+
+  <div>
+    <div class="btn-ghost btn-filter">
+        <p>Age</p>
+    </div>
+
+    <div>
+      <form action="/toys" id="slider-form">
+        <input id="age" data-slider-id='ageSlider' type="text" data-slider-min="5" data-slider-max="16" data-slider-step="1" data-slider-value="" />
+        <input type="submit" value="Save" id="minAgeInput" class="btn-ghost">
+      </form>
+    </div>
+
+<!--     <div>
+       Filter by price per day: <b>€ 5</b> <input id="price" type="text" class="span2" value="" data-slider-min="5" data-slider-max="100" data-slider-step="5" data-slider-value="[5,100]"/> <b>€ 100</b>
+    </div> -->
+
   </div>
 
 </div>
