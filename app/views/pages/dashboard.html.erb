@@ -2,54 +2,35 @@
   <h1>Welcome to your dashboard</h1>
 </div>
 
-
-
-
 <div class="main_dashboard_container">
-  <%= cl_image_tag @user.avatar, height: 50, width: 50, crop: :fill, class: 'avatar-large' %>
-  <%= link_to "edit", edit_user_registration_path(current_user) %>
+
+  <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
+        <h1>My profile</h1>
+      </div>
+
+  <div>
+    <%= cl_image_tag @user.avatar, height: 50, width: 50, crop: :fill, class: 'avatar-large' %>
+    <%= link_to "edit", edit_user_registration_path(current_user) %>
+  </div>
+
+      <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
+        <h1>Bookings</h1>
+      </div>
+
+     <% @bookings = @user.bookings %></br>
+     <% @bookings.each do |b| %>
+       <% @toy_id = b.toy_id %>
+       <% @toy = Toy.find(@toy_id) %>
+       <h1><%= @toy.name %></h1>
+    <% end %>
+
+     <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
+        <h1>Your toys for rent</h1>
+      </div>
 
 
-   <% @toys.each_slice(3) do |row| %>
-      <div class="row">
-        <% row.each do |toy| %>
-          <div class="col-md-4 mt-3">
-            <div class="card_toy">
-                <%= image_tag toy.picture, width: 400, height: 300, crop: :fill %>
-              <div class="title_box">
-                <h2><%= toy.name %></h2>
-                <div class="star_box">
-                <span><i class="fas fa-star"></i></span>
-                <span><i class="fas fa-star"></i></span>
-                <span><i class="fas fa-star"></i></span>
-                <span><i class="fas fa-star"></i></span>
-              </div>
-            </div>
-              <p><%= toy.description%></p>
-            <div class="product-details">
-              <h3>min age : <%= toy.min_age %></h3>
-              <h3>category : <%= toy.theme[:name] %></h3>
-            </div>
-            <div class="address_box">
-              <i class="fas fa-map-marker-alt"></i>
-                xxx m
-            </div>
-              <div class="price_box">
-                <div class="price_box_price">
-                  <%= toy.daily_price %>$
-                </div>
-              <div class="price_box_text">
-                  PER DAY
-               </div>
-              </div>
-            <div class="card_toy_button">
-              <%= link_to "View this toy", toy_path(toy), class: 'btn-ghost' %>
-            </div>
-
-          </div>
-        </div>
-       <% end %>
-    </div>
-  <% end %>
-</div>
+ <% @toys.each do |toy| %>
+        <h1><%= toy.name %></h1>
+        <%= link_to "View this toy", toy_path(toy), class: 'btn-ghost' %>
+    <% end %>
 </div>
