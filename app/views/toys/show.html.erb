@@ -26,11 +26,11 @@
         <div id='toy-booking-dates' data-unavailable="<%= @toy.unavailable_dates.to_json %>">
          <!--  do not display booking form if current user is owner of toy -->
          <% if current_user.id != @toy.user_id  %>
-         <%= simple_form_for [@toy, @booking] do |f|%>
-         <%= f.label :start_date, 'Dates'  %>
-         <%= f.input :start_date, html5: true, label: false %>
-         <%= f.button :submit, value: :Checkout, class: "btn btn-primary btn-checkout" %>
-         <% end %>
+           <%= simple_form_for [@toy, @booking] do |f|%>
+             <%= f.label :start_date, 'Dates'  %>
+             <%= f.input :start_date, html5: true, label: false %>
+             <%= f.button :submit, value: :Checkout, class: "btn btn-primary btn-checkout" %>
+           <% end %>
          <% end %>
        </div>
       </div>
