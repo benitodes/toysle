@@ -26,13 +26,32 @@ const flatpicker = () => {
   }
 }
 
+const minimumSelection = () => {
+  // select flatpickr
+  const dateInput = document.querySelector('#booking_start_date')
+  // select book button
+  const button = document.querySelector('.btn-checkout')
+  // add event listener to calendar
+  dateInput.addEventListener("change", (e) => {
+    console.log('test')
+    // if more than one date is selected by user it includes 'to' in input field
+    // if it does include 'to' then user can complete booking, otherwise button is disabled
+    if (dateInput.value.includes("to")) {
+      button.disabled = false;
+    } else {
+      button.disabled = true;
+    }
+    });
+}
 
 // function to display calendar in filterbar on toys page
-
 $("#rangeDate").flatpickr({
     mode: 'range',
     dateFormat: "Y-m-d"
 });
 
+// exports
+
 export { flatpicker }
+export { minimumSelection }
 
