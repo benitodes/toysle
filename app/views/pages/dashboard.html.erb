@@ -30,7 +30,10 @@
 
 
  <% @toys.each do |toy| %>
+   <div>
+        <%= cl_image_tag toy.picture, height: 300, width: 400, crop: :fill %>
         <h1><%= toy.name %></h1>
         <%= link_to "View this toy", toy_path(toy), class: 'btn-ghost' %>
+    </div>
     <% end %>
 </div>

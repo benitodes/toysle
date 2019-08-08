@@ -8,8 +8,6 @@ const flatpicker = () => {
   const date = document.getElementById("booking_start_date")
   // split string and assign it to start date and end date variables
 
-  console.log(date);
-
   if (date) {
     const startDateInput = date.value.split(' to ')[0];
     const endDateInput = date.value.split(' to ')[1];

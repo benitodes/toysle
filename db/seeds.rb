@@ -34,9 +34,14 @@ end
 puts "themes have been created"
 
 
+
+
+
 # create toy data array
 
+
 toy_list = [
+
   ['Hasbro Twister Dance Games', 'Those famous Twister dots have become dance teachers. In Twister Dance Contest,
     follow the lights from the console and dance on the dots. The console is pre-programmed with 5 songs that can be played at 3 skill levels. You can also plug in your own MP3 player and dance to any song in your library.
   For two to four players, ages 8 and up. Hasbro also has more dance games in the Twister series.', '5 Cours du Tage, Serris', 4, 8, 1, 1, 'https://images.unsplash.com/photo-1535572290543-960a8046f5af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'],
@@ -51,11 +56,9 @@ Anyone who's over 7 years old and under 250 pounds can use it.", 'Place Daviel, 
 The set weighs just 3 pounds and comes with a travel bag, and you can also buy an expansion pack.", "2 rue des Cordeliers, Aix-en-Provence", 7, 5, 1, 3,
 "https://images.unsplash.com/photo-1560642042-1d0d2bf5a742?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"],
 
-
   ['Letter cubes', "This unique lawn game combines characteristics of horseshoes, bocce ball and bowling. Players roll their disks to the goal, aiming to get closest. It takes skill, but there's an element of chance too.
 The set weighs just 3 pounds and comes with a travel bag, and you can also buy an expansion pack.", "2 rue des Cordeliers, Aix-en-Provence", 7, 5, 1, 3,
 "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1508&q=80"],
-
 
   ['Buggies', "This unique lawn game combines characteristics of horseshoes, bocce ball and bowling. Players roll their disks to the goal, aiming to get closest. It takes skill, but there's an element of chance too.
 The set weighs just 3 pounds and comes with a travel bag, and you can also buy an expansion pack.", "2 rue des Cordeliers, Aix-en-Provence", 7, 5, 1, 3,
@@ -75,3 +78,18 @@ end
 
 puts "toys have been created"
 
+# create bookings
+
+booking_list = [
+  [Date.today - 20, Date.today - 15, 50, 2, 1],
+  [Date.today - 30, Date.today - 25, 80, 3, 1],
+  [Date.today - 10, Date.today - 3, 35, 3, 1],
+  [Date.today - 9, Date.today - 2, 64, 2, 1],
+  [Date.today - 13, Date.today - 11, 20, 2, 1]
+]
+
+booking_list.each do |start_date, end_date, total_price, toy_id, user_id|
+  Booking.create!(start_date: start_date, end_date: end_date, total_price: total_price, toy_id: toy_id, user_id: user_id)
+end
+
+puts "bookings have been created"
