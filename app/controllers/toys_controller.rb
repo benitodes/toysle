@@ -4,15 +4,18 @@ class ToysController < ApplicationController
 
   def index
     # @toys = Toy.all
-    @toys = Toy.geocoded #returns flats with coordinates
+    # @toys = Toy.geocoded #returns flats with coordinates
+    # display_markers
 
-    @markers = @toys.map do |toy|
-      {
-        lat: toy.latitude,
-        lng: toy.longitude,
-        # Open an info window when I click on the marker
-        infoWindow: render_to_string(partial: "info_window", locals: { toy: toy })
-      }
+    if params[:query].present?
+      # display the toys which have a valid address corresponging to the query of the user
+      @toys = Toy.geocoded.where(address: params[:query])
+      # method to keep my code dry. See below!
+      display_markers
+    else
+      # display the toys which have a valid adress
+      @toys = Toy.geocoded
+      display_markers
     end
   end
 
@@ -66,6 +69,17 @@ class ToysController < ApplicationController
 
   def toy_params
     params.require(:toy).permit(:name, :description, :address, :daily_price, :min_age, :theme_id, :user_id)
+  end
+
+  def display_markers
+    @markers = @toys.map do |toy|
+      {
+        lat: toy.latitude,
+        lng: toy.longitude,
+        # Open an info window when I click on the marker
+        infoWindow: render_to_string(partial: "info_window", locals: { toy: toy })
+      }
+    end
   end
 
 end
