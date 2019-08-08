@@ -1,39 +1,68 @@
 <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
-  <h1>Welcome to your dashboard</h1>
+  <h1>Weclome <%= current_user.email %></h1></h1>
 </div>
 
-<div class="main_dashboard_container">
-
-  <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
-        <h1>My profile</h1>
-      </div>
-
-  <div>
-    <%= cl_image_tag @user.avatar, height: 50, width: 50, crop: :fill, class: 'avatar-large' %>
+<!-- Profile section -->
+  <div style="text-align: center">
+    <%= cl_image_tag current_user.avatar, height: 100, width: 100, crop: :fill, class: 'avatar-large' %>
     <%= link_to "edit", edit_user_registration_path(current_user) %>
   </div>
 
-      <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
-        <h1>Bookings</h1>
+<!-- Bookings section -->
+
+  <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
+    <h1>My Bookings</h1>
+  </div>
+  <div>
+    <% @bookings.each_slice(3) do |row| %>
+      <div class="row">
+        <% row.each do |booking| %>
+          <div class="col-md-4 mt-3">
+            <div class="card_toy">
+              <%= cl_image_tag booking.toy.picture, width: 400, height: 300, crop: :fill %>
+              <div class="title_box">
+                <h1><%= booking.toy.name %></h1>
+              </div>
+               <div class="product-details">
+                  <p>from: <%= booking.start_date %></p>
+                  <p>to: <%= booking.end_date %></p>
+                </div>
+                <% if booking.finish? && booking.review.nil? %>
+                  <%= simple_form_for [booking, @review] do |f| %>
+                  <%= f.input :content %>
+                  <%= f.input :rating %>
+                  <%= f.submit "Rate this booking", class: 'btn-ghost' %>
+                  <% end %>
+                <% else %>
+                 <div class="product-details">
+
+                </div>
+                <% end %>
+              </div>
+          </div>
+        <% end %>
       </div>
-
-     <% @bookings = @user.bookings %></br>
-     <% @bookings.each do |b| %>
-       <% @toy_id = b.toy_id %>
-       <% @toy = Toy.find(@toy_id) %>
-       <h1><%= @toy.name %></h1>
     <% end %>
+  </div>
 
-     <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
-        <h1>Your toys for rent</h1>
+<!-- Rental section -->
+
+  <div>
+    <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
+    <h1>My toys listed for rent</h1>
+  </div>
+  <div>
+    <% @toys.each_slice(3) do |row| %>
+      <div class="row">
+        <% @toys.each do |toy| %>
+          <div class="col-md-4 mt-3">
+            <h1><%= toy.name %></h1>
+            <%= link_to "View this toy", toy_path(toy), class: 'btn-ghost' %>
+          </div>
+        <% end %>
       </div>
-
-
- <% @toys.each do |toy| %>
-   <div>
-        <%= cl_image_tag toy.picture, height: 300, width: 400, crop: :fill %>
-        <h1><%= toy.name %></h1>
-        <%= link_to "View this toy", toy_path(toy), class: 'btn-ghost' %>
-    </div>
     <% end %>
+  </div>
+
+<!--   #end of main container -->
 </div>

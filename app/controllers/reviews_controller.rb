@@ -2,12 +2,13 @@ class ReviewsController < ApplicationController
   def create
     @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
-    authorize @review
     @review.booking = @booking
+    authorize @review
     if @review.save
       redirect_to dashboard_path
     else
-      render 'bookings/show'
+      flash[:alert] = "#{@review.errors.full_messages}"
+      redirect_to dashboard_path
     end
   end
 

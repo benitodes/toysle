@@ -60,7 +60,7 @@
       <% row.each do |toy| %>
         <div class="col-md-4 mt-3">
           <div class="card_toy">
-              <%= image_tag toy.picture, width: 400, height: 300, crop: :fill %>
+              <%= cl_image_tag toy.picture, width: 400, height: 300, crop: :fill %>
             <div class="title_box">
               <h2><%= toy.name %></h2>
               <div class="star_box">
