@@ -34,7 +34,11 @@ end
 puts "themes have been created"
 
 
+
+
+
 # create toy data array
+
 
 toy_list = [
   ['Hasbro Twister Dance Games', 'Those famous Twister dots have become dance teachers. In Twister Dance Contest,
@@ -75,3 +79,18 @@ end
 
 puts "toys have been created"
 
+# create bookings
+
+booking_list = [
+  [Date.today - 20, Date.today - 15, 50, 2, 1],
+  [Date.today - 30, Date.today - 25, 80, 3, 1],
+  [Date.today - 10, Date.today - 3, 35, 3, 1],
+  [Date.today - 9, Date.today - 2, 64, 2, 1],
+  [Date.today - 13, Date.today - 11, 20, 2, 1]
+]
+
+booking_list.each do |start_date, end_date, total_price, toy_id, user_id|
+  Booking.create!(start_date: start_date, end_date: end_date, total_price: total_price, toy_id: toy_id, user_id: user_id)
+end
+
+puts "bookings have been created"
