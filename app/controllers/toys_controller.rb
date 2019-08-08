@@ -1,6 +1,6 @@
 class ToysController < ApplicationController
   before_action :set_toy, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [ :index, :show ]
 
   def index
     # display all the toys which have a valid adress
