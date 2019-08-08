@@ -5,8 +5,6 @@ const initAutocomplete = () => {
   if (toyAddressInput) {
     places({ container: toyAddressInput });
   }
-
-
 };
 
 export { initAutocomplete };
