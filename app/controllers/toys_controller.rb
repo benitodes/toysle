@@ -3,17 +3,12 @@ class ToysController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    # @toys = Toy.all
-    @toys = Toy.geocoded #returns flats with coordinates
-
-    @markers = @toys.map do |toy|
-      {
-        lat: toy.latitude,
-        lng: toy.longitude,
-        # Open an info window when I click on the marker
-        infoWindow: render_to_string(partial: "info_window", locals: { toy: toy })
-      }
-    end
+    # display all the toys which have a valid adress
+    @toys = Toy.geocoded
+    # display all the toys near the address enter by the user
+    @toys = @toys.near(params[:toy_address], 50) if params[:toy_address].present?
+    # display markers on the map
+    display_markers
   end
 
   def show
@@ -66,6 +61,17 @@ class ToysController < ApplicationController
 
   def toy_params
     params.require(:toy).permit(:name, :description, :address, :daily_price, :min_age, :picture, :theme_id, :user_id)
+  end
+
+  def display_markers
+    @markers = @toys.map do |toy|
+      {
+        lat: toy.latitude,
+        lng: toy.longitude,
+        # Open an info window when I click on the marker
+        infoWindow: render_to_string(partial: "info_window", locals: { toy: toy })
+      }
+    end
   end
 
 end
