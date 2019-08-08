@@ -19,6 +19,7 @@ const flatpicker = () => {
     // insert all flatpickr options
     mode: "range",
     minDate: "today",
+    minRange: 2,
     disable: unavailableDates,
     dateFormat: "Y-m-d"
   });

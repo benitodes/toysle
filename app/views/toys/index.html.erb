@@ -15,7 +15,6 @@
       <form action="/toys" id="age-slider-form">
         <input id="age" data-slider-id='ageSlider' type="text" data-slider-min="5" data-slider-max="16" data-slider-step="1" data-slider-value="" />
         <input type="submit" value="Save" id="minAgeInput" class="btn-ghost">
-      </form>
     </div>
   </div>
 
@@ -24,10 +23,8 @@
         <p>Price</p>
     </div>
     <div>
-      <form action="/toys" id="price-slider-form">
           Filter by price per day: <b>€ 5 </b> <input id="price" type="text" class="span2" value="" data-slider-min="5" data-slider-max="100" data-slider-step="5" data-slider-value="[5,100]"/> <b> € 100</b>
         <input type="submit" value="Save" id="priceInput" class="btn-ghost">
-      </form>
     </div>
   </div>
 
@@ -44,9 +41,12 @@
     <div class="btn-ghost btn-filter">
         <p>Themes</p>
     </div>
-     <%= simple_form_for :query do |f| %>
-      <%= f.input :theme, collection: Theme.all %>
-     <% end %>
+
+     <select name="" id="">
+      <%= Theme.all.each do |theme| %>
+        <option name="theme" value="<%= theme.name %>"><%= theme.name %></option>
+      <% end %>
+     </select>
 
   </div>
 
