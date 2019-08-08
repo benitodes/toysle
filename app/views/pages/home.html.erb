@@ -6,7 +6,7 @@
     <a><%= link_to "Find a toy", toys_path, class: "btn btn-flat" %></a>
 
     <%= form_tag toys_path, method: :get do %>
-    <%= text_field_tag :query,
+    <%= text_field_tag :toy_address,
     params[:query],
     class: "form-control",
       placeholder: "Enter an address"

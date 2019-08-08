@@ -8,6 +8,10 @@ import { initMapbox } from '../plugins/init_mapbox';
 // we are doing that because we want to implement it into our simple form
 import { flatpicker } from "../plugins/flatpickr";
 
+import { initAutocomplete } from "../plugins/init_autocomplete";
+
 initMapbox();
+
+initAutocomplete();
 
 flatpicker();

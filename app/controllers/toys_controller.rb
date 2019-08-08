@@ -3,20 +3,9 @@ class ToysController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    # @toys = Toy.all
-    # @toys = Toy.geocoded #returns flats with coordinates
-    # display_markers
-
-    if params[:query].present?
-      # display the toys which have a valid address corresponging to the query of the user
-      @toys = Toy.geocoded.where(address: params[:query])
-      # method to keep my code dry. See below!
-      display_markers
-    else
-      # display the toys which have a valid adress
-      @toys = Toy.geocoded
-      display_markers
-    end
+    @toys = Toy.geocoded
+    @toys = @toys.near(params[:query], 40) if params[:query].present?
+    display_markers
   end
 
   def show
