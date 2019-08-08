@@ -6,15 +6,6 @@
 <!-- filter bar  -->
 <div class="filterbar">
 
-<!--   <div>
-    <div class="btn-ghost btn-filter">
-        <p>Booking</p>
-    </div>
-    <div class="btn-ghost btn-filter">
-        Calendar
-    </div>
-  </div> -->
-
   <div>
     <div class="btn-ghost btn-filter">
         <p>Minimum Age</p>
@@ -55,9 +46,6 @@
     </div>
      <%= simple_form_for :query do |f| %>
       <%= f.input :theme, collection: Theme.all %>
-      <%# @themes.each do |t| %>
-       <%#= f.input (t.name).to_sym, as: :select, collection: Theme.all %>
-      <%# end %>
      <% end %>
 
   </div>
@@ -112,12 +100,16 @@
 </div>
 
 <div class="map_container">
-  <div
-    id="map"
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
+  <% if @markers != nil  %>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+  <% else  %>
+    <h2>No results within 50km of your address</h2>
+  <% end %>
 </div>
 

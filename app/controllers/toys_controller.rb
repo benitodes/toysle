@@ -7,8 +7,8 @@ class ToysController < ApplicationController
     @toys = Toy.geocoded
     # display all the toys near the address enter by the user
     @toys = @toys.near(params[:toy_address], 50) if params[:toy_address].present?
+    display_markers unless @toys.empty?
     # display markers on the map
-    display_markers
   end
 
   def show
