@@ -22,7 +22,7 @@ const form = document.getElementById('filter-form');
 const minAgeSlider = () => {
   const ageSlider = document.getElementById("ageSlider");
   ageSlider.addEventListener('click', (event) => {
-    form.submit();
+    Rails.fire(form, "submit");
   });
 }
 
@@ -31,7 +31,7 @@ const minAgeSlider = () => {
 const priceSlider = () => {
   const priceSlider = document.getElementById("priceSlider");
   priceSlider.addEventListener('click', (event) => {
-    form.submit();
+    Rails.fire(form, "submit");
   });
 }
 

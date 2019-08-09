@@ -1,9 +1,9 @@
 // generate *JavaScript* that would be executed in the browser
 console.log('this is a test')
 
-// function refreshForm(innerHTML) {
-//   const newReviewForm = document.getElementById('filter-form');
-//   newReviewForm.innerHTML = innerHTML;
-// }
+function refreshToys(innerHTML) {
+  const toysList = document.getElementById('toys-list');
+  toysList.innerHTML = innerHTML;
+}
 
-// refreshForm('<%= j render "toys", @toys = Toy.all %>');
+refreshToys('<%= j render "toys_list", toys: @toys %>');

@@ -1,5 +1,5 @@
 class ToysController < ApplicationController
-  before_action :set_toy, only: [:show, :edit, :update, :destroy]
+  before_action :set_toy, only: [:show, :edit, :update, :destroy ]
   before_action :authenticate_user!, except: [ :index, :show ]
 
   def index
@@ -19,13 +19,16 @@ class ToysController < ApplicationController
       # only show toys that match filter
       @toys = @toys.select { |t| t.min_age >= min_age_input && t.daily_price > min_price_input && t.daily_price < max_price_input }
       # raise
-
       respond_to do |format|
         format.html { redirect_to toys_path }
         format.js
-        # raise # <-- will render `app/views/reviews/create.js.erb`
       end
     end
+  end
+
+  def search
+    @toy = Toy.new
+    authorize @toy
   end
 
   def show
