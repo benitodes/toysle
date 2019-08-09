@@ -5,11 +5,11 @@ import { flatpicker } from "../plugins/flatpickr";
 import { minimumSelection } from "../plugins/flatpickr";
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { typed } from "../plugins/typed";
-// we are importing the function flatpcickr from our file flatpickr.js
-// we are doing that because we want to implement it into our simple form
+import { displayAlert } from "../plugins/display_alert";
 
 initMapbox();
 flatpicker();
 initAutocomplete();
-// minimumSelection();
+minimumSelection();
 typed();
+displayAlert();
