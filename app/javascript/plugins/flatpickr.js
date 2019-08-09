@@ -64,9 +64,9 @@ const minimumSelection = () => {
     } else {
       button.disabled = true;
     }
-    });
+  });
+}
 
-  }
 }
 
 // function to display calendar in filterbar on toys page

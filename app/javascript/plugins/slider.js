@@ -17,32 +17,42 @@ const sliderPrice = new Slider('#price', {
 });
 
 
-// function to get value from age slider and prevend reloading page
+const form = document.getElementById('filter-form');
+// function to get value from age slider and submit form (ajax)
 const minAgeSlider = () => {
-  const ageForm = document.getElementById("age-slider-form");
-  console.log(ageForm)
-  ageForm.addEventListener('submit', (event) => {
-    console.log(event)
-    event.preventDefault();
-    const minAge = document.getElementById("age").value
-    console.log(minAge);
+  const ageSlider = document.getElementById("ageSlider");
+  ageSlider.addEventListener('click', (event) => {
+    Rails.fire(form, "submit");
   });
 }
 
 
-// function to get value from price slider and prevend reloading page
+// function to get value from price slider and submit form (ajax)
 const priceSlider = () => {
-
-  const priceForm = document.getElementById("price-slider-form");
-  console.log(priceForm)
-  priceForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const priceRange = document.getElementById("price").value
-    // priceRange = array of min and max price e.g. [3, 10]
+  const priceSlider = document.getElementById("priceSlider");
+  priceSlider.addEventListener('click', (event) => {
+    Rails.fire(form, "submit");
   });
-
 }
 
+// function to get value from price slider and submit form (ajax)
+const themeSelect = () => {
+  const themeSelect = document.querySelector("#theme-list > a");
+  themeSelect.addEventListener('click', (event) => {
+    // event.preventDefault();
+    console.log(event);
+    Rails.fire(form, "submit");
+  });
+}
 
-export { minAgeSlider }
-export { priceSlider }
+// const dateSelector = () => {
+//   const dateSelector = document.getElementById("rangeDate");
+//   priceSlider.addEventListener('click', (event) => {
+//     console.log(event);
+//     // form.submit();
+//   });
+
+// }
+
+export { minAgeSlider, priceSlider, themeSelect }
+

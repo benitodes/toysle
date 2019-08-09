@@ -1,0 +1,9 @@
+// generate *JavaScript* that would be executed in the browser
+console.log('this is a test')
+
+function refreshToys(innerHTML) {
+  const toysList = document.getElementById('toys-list');
+  toysList.innerHTML = innerHTML;
+}
+
+refreshToys('<%= j render "toys_list", toys: @toys %>');

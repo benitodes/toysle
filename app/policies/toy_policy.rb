@@ -21,6 +21,10 @@ class ToyPolicy < ApplicationPolicy
     true
   end
 
+  def search?
+    true
+  end
+
   def update?
     record.user == user
   end

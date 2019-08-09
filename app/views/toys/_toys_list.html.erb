@@ -1,0 +1,42 @@
+<% toys.each_slice(3) do |row| %>
+  <div class="row">
+    <% row.each do |toy| %>
+      <div class="col-md-4 mt-3">
+        <div class="card_toy">
+            <%= cl_image_tag toy.picture, width: 400, height: 300, crop: :fill %>
+          <div class="title_box">
+            <h2><%= toy.name %></h2>
+            <div class="star_box">
+            <span><i class="fas fa-star"></i></span>
+            <span><i class="fas fa-star"></i></span>
+            <span><i class="fas fa-star"></i></span>
+            <span><i class="fas fa-star"></i></span>
+          </div>
+        </div>
+          <p><%= toy.description%></p>
+        <div class="product-details">
+          <h3>min age : <%= toy.min_age %></h3>
+          <h3>category : <%= toy.theme[:name] %></h3>
+        </div>
+        <div class="address_box">
+          <i class="fas fa-map-marker-alt"></i>
+            xxx m
+        </div>
+          <div class="price_box">
+            <div class="price_box_price">
+              <%= toy.daily_price %>$
+            </div>
+          <div class="price_box_text">
+              PER DAY
+           </div>
+          </div>
+          <div class="card_toy_button">
+              <%= link_to "View this toy", toy_path(toy), class: 'btn-ghost' %>
+            </div>
+
+          </div>
+
+        </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,5 +1,5 @@
 class ToysController < ApplicationController
-  before_action :set_toy, only: [:show, :edit, :update, :destroy]
+  before_action :set_toy, only: [:show, :edit, :update, :destroy ]
   before_action :authenticate_user!, except: [ :index, :show ]
 
   def index
@@ -12,7 +12,29 @@ class ToysController < ApplicationController
       flash[:alert] = "No toys thereeeeeee"
     end
     display_markers unless @toys.empty?
-    # display markers on the map
+
+    # raise
+    # FILTER
+    if params.has_key?(:slider) || params.has_key?(:id)
+      # fetch min age from age slider
+      min_age_input = params[:slider][:age_input].to_i
+      # fetch min and max price from price slider
+      min_price_input = params[:slider][:price_input].split(',')[0].to_i
+      max_price_input = params[:slider][:price_input].split(',')[1].to_i
+
+      # only show toys that match filter
+      @toys = @toys.select { |t| t.min_age >= min_age_input && t.daily_price > min_price_input && t.daily_price < max_price_input }
+      # raise
+      respond_to do |format|
+        format.html { redirect_to toys_path }
+        format.js
+      end
+    end
+  end
+
+  def search
+    @toy = Toy.new
+    authorize @toy
   end
 
   def show
