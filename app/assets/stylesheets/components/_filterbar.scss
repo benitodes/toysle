@@ -18,3 +18,11 @@
   margin-top: 8px;
 }
 
+.dropdown-toggle[aria-expanded="true"] {
+  background: #085f63 !important;
+  color: white !important;
+}
+
+.dropdown a {
+  margin-top: 8px;
+}

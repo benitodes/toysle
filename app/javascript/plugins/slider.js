@@ -35,6 +35,15 @@ const priceSlider = () => {
   });
 }
 
+// function to get value from price slider and submit form (ajax)
+const themeSelect = () => {
+  const themeSelect = document.getElementById("theme");
+  themeSelect.addEventListener('click', (event) => {
+    console.log(event);
+    Rails.fire(form, "submit");
+  });
+}
+
 // const dateSelector = () => {
 //   const dateSelector = document.getElementById("rangeDate");
 //   priceSlider.addEventListener('click', (event) => {
