@@ -68,7 +68,6 @@ const minimumSelection = () => {
 
   }
 }
-}
 
 // function to display calendar in filterbar on toys page
 
