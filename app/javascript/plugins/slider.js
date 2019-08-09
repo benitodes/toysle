@@ -18,7 +18,7 @@ const sliderPrice = new Slider('#price', {
 
 
 const form = document.getElementById('filter-form');
-// function to get value from age slider and prevend reloading page
+// function to get value from age slider and submit form (ajax)
 const minAgeSlider = () => {
   const ageSlider = document.getElementById("ageSlider");
   ageSlider.addEventListener('click', (event) => {
@@ -28,14 +28,17 @@ const minAgeSlider = () => {
 }
 
 
-// function to get value from price slider and prevend reloading page
+// function to get value from price slider and submit form (ajax)
 const priceSlider = () => {
-  const priceForm = document.getElementById("priceSlider");
-  priceForm.addEventListener('click', (event) => {
+  const priceSlider = document.getElementById("priceSlider");
+  priceSlider.addEventListener('click', (event) => {
     console.log(event);
-    form.submit();
-    const priceRange = document.getElementById("price").value
     // priceRange = array of min and max price e.g. [3, 10]
+    // const priceValue = document.getElementById("price");
+    const priceRange = document.getElementById("price").value
+    // priceValue.value = priceRange
+    console.log(priceRange)
+    form.submit();
   });
 
 }
