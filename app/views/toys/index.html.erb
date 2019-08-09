@@ -34,9 +34,9 @@
   <button class="btn-ghost btn-filter dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Themes
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <div id="theme-list" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <% Theme.all.each do |theme| %>
-      <a class="dropdown-item" name="theme" href="#"><%= theme.name %></a>
+      <a class="dropdown-item" name="theme" href=""><%= theme.name %></a>
     <% end %>
   </div>
 </div>

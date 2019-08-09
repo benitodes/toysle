@@ -37,8 +37,9 @@ const priceSlider = () => {
 
 // function to get value from price slider and submit form (ajax)
 const themeSelect = () => {
-  const themeSelect = document.getElementById("theme");
+  const themeSelect = document.querySelector("#theme-list > a");
   themeSelect.addEventListener('click', (event) => {
+    event.preventDefault();
     console.log(event);
     Rails.fire(form, "submit");
   });
@@ -53,5 +54,5 @@ const themeSelect = () => {
 
 // }
 
-export { minAgeSlider }
-export { priceSlider }
+export { minAgeSlider, priceSlider, themeSelect }
+
