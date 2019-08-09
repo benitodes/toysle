@@ -39,7 +39,7 @@ const priceSlider = () => {
 const themeSelect = () => {
   const themeSelect = document.querySelector("#theme-list > a");
   themeSelect.addEventListener('click', (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     console.log(event);
     Rails.fire(form, "submit");
   });

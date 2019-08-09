@@ -9,8 +9,9 @@ class ToysController < ApplicationController
     @toys = @toys.near(params[:toy_address], 50) if params[:toy_address].present?
     # display markers on the map
     display_markers unless @toys.empty?
+    # raise
     # FILTER
-    if params.has_key?(:slider)
+    if params.has_key?(:slider) || params.has_key?(:id)
       # fetch min age from age slider
       min_age_input = params[:slider][:age_input].to_i
       # fetch min and max price from price slider

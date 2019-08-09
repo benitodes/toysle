@@ -36,7 +36,8 @@
   </button>
   <div id="theme-list" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <% Theme.all.each do |theme| %>
-      <a class="dropdown-item" name="theme" href=""><%= theme.name %></a>
+      <%= link_to theme.name, toys_path(theme: theme.name) %>
+      <a class="dropdown-item" href="<%= theme.name %>"><%= theme.name %></a>
     <% end %>
   </div>
 </div>
