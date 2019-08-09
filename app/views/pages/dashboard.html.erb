@@ -44,11 +44,14 @@
                       </div>
                   </div>
                 </div>
-                <% else %>
-                  <div class="product-details">
-                    <a>This toy was rented <%= (booking.end_date - Date.today).to_i %> days ago</a></br>
-                    <a>An you gave it a rating</a>
+                <div class="product-details mb-2">
+                    <a>This toy was rented <%= (Date.today - booking.end_date).to_i %> days ago</a></br>
                   </div>
+           <!--      <#% else %>
+                  <div class="product-details">
+                     <a><%#= booking.review.rating %></a>
+                     <a>currently on vacation at your place</a>
+                  </div> -->
                 <% end %>
               </div>
             </div>
