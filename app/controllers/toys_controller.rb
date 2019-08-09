@@ -3,12 +3,16 @@ class ToysController < ApplicationController
   before_action :authenticate_user!, except: [ :index, :show ]
 
   def index
-    # display all the toys which have a valid adress
     @toys = Toy.geocoded
+    # display all the toys which have a valid adress
     # display all the toys near the address enter by the user
-    @toys = @toys.near(params[:toy_address], 50) if params[:toy_address].present?
-    # display markers on the map
+    if params[:toy_address].present?
+      @toys = @toys.near(params[:toy_address], 50)
+      redirect_to root_path if @toys.empty?
+      flash[:alert] = "No toys thereeeeeee"
+    end
     display_markers unless @toys.empty?
+
     # raise
     # FILTER
     if params.has_key?(:slider) || params.has_key?(:id)
