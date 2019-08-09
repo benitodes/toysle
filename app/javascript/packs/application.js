@@ -14,5 +14,5 @@ import { typed } from "../plugins/typed";
 initMapbox();
 flatpicker();
 initAutocomplete();
-// minimumSelection();
+minimumSelection();
 typed();

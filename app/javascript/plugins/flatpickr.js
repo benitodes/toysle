@@ -50,7 +50,7 @@ const minimumSelection = () => {
       // multiply number of days by daily price
       const totalPrice = days * dailyPrice;
       // Insert total price in DOM
-      document.getElementById("total_price").innerHTML = totalPrice;
+      document.getElementById("total_price").innerHTML = totalPrice + "$";
 
     } else {
       button.disabled = true;
