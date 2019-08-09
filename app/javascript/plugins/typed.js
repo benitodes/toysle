@@ -7,14 +7,10 @@ const typed = () => {
   // });
   const typedSubtitle = new Typed('.marketing-subtitle', {
     strings: ["Adopt great toys all around you", "Send your toys on vacation"],
-    typeSpeed: 50
+    typeSpeed: 50,
+    showCursor: false,
+    loop: true
   });
 }
 
 export { typed };
-
-// const initAutocomplete = () => {
-//   const toyAddressInput = document.getElementById('toy_address');
-//   if (toyAddressInput) {
-//     places({ container: toyAddressInput });
-//   }
