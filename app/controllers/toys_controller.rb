@@ -17,8 +17,14 @@ class ToysController < ApplicationController
       min_price_input = params[:slider][:price_input].split(',')[0].to_i
       max_price_input = params[:slider][:price_input].split(',')[1].to_i
       # only show toys that match filter
-      @toys = @toys.select { |t| t.min_age >= min_age_input && t.daily_price > min_price_input }
+      @toys = @toys.select { |t| t.min_age >= min_age_input && t.daily_price > min_price_input && t.daily_price < max_price_input }
       # raise
+
+      respond_to do |format|
+        format.html { redirect_to toys_path }
+        format.js
+        # raise # <-- will render `app/views/reviews/create.js.erb`
+      end
     end
   end
 

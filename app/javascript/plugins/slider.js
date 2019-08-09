@@ -23,7 +23,6 @@ const minAgeSlider = () => {
   const ageSlider = document.getElementById("ageSlider");
   ageSlider.addEventListener('click', (event) => {
     form.submit();
-    const minAge = document.getElementById("age").value
   });
 }
 
@@ -32,17 +31,18 @@ const minAgeSlider = () => {
 const priceSlider = () => {
   const priceSlider = document.getElementById("priceSlider");
   priceSlider.addEventListener('click', (event) => {
-    console.log(event);
-    // priceRange = array of min and max price e.g. [3, 10]
-    // const priceValue = document.getElementById("price");
-    const priceRange = document.getElementById("price").value
-    // priceValue.value = priceRange
-    console.log(priceRange)
     form.submit();
   });
-
 }
 
+// const dateSelector = () => {
+//   const dateSelector = document.getElementById("rangeDate");
+//   priceSlider.addEventListener('click', (event) => {
+//     console.log(event);
+//     // form.submit();
+//   });
+
+// }
 
 export { minAgeSlider }
 export { priceSlider }
