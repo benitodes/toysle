@@ -1,11 +1,9 @@
-<div class="banner" style="linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))">
+<div class="banner">
   <div class="container-banner">
-
-    <h1>Never let Mister Bear alone!</h1>
-    <p>Adopt great toys all around you</p>
-<!--     <a><%#= link_to "Find a toy", toys_path, class: "btn btn-flat" %></a>
--->
-
+    <div class="height">
+      <h1 class="marketing-title">Never let Mister Bear alone!</h1>
+      <p class="marketing-subtitle"></p>
+    </div>
 <%= form_tag toys_path, class: "home-search", method: :get do %>
 <div class="d-flex justify">
   <%= text_field_tag :toy_address,

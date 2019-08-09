@@ -1,6 +1,11 @@
 .main_dashboard_container {
-
+  min-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
+
 
 .container_new_edit_toy {
     background-color: white;
@@ -14,5 +19,10 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 5px;
     padding: 20px;
+}
 
+.container_rating_form {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }

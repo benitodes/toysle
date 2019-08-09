@@ -1,68 +1,98 @@
-<div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
-  <h1>Weclome <%= current_user.email %></h1></h1>
-</div>
+<div class="main_dashboard_container">
+<!-- Bootstrap inplementation of the tabs -->
 
-<!-- Profile section -->
-  <div style="text-align: center">
-    <%= cl_image_tag current_user.avatar, height: 100, width: 100, crop: :fill, class: 'avatar-large' %>
-    <%= link_to "edit", edit_user_registration_path(current_user) %>
-  </div>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+      aria-selected="true">My bookings</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+      aria-selected="false">My toys</a>
+  </li>
+</ul>
 
-<!-- Bookings section -->
+<div class="tab-content" id="myTabContent">
 
-  <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
-    <h1>My Bookings</h1>
-  </div>
-  <div>
-    <% @bookings.each_slice(3) do |row| %>
-      <div class="row">
-        <% row.each do |booking| %>
-          <div class="col-md-4 mt-3">
-            <div class="card_toy">
-              <%= cl_image_tag booking.toy.picture, width: 400, height: 300, crop: :fill %>
-              <div class="title_box">
-                <h1><%= booking.toy.name %></h1>
-              </div>
-               <div class="product-details">
-                  <p>from: <%= booking.start_date %></p>
-                  <p>to: <%= booking.end_date %></p>
+<!-- First tab -->
+
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+ <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
+        <h1>My Bookings</h1>
+    </div>
+      <% @bookings.each_slice(3) do |row| %>
+        <div class="row">
+          <% row.each do |booking| %>
+            <div class="col-md-4 mt-3">
+              <div class="card_toy">
+                <%= cl_image_tag booking.toy.picture, width: 400, height: 300, crop: :fill %>
+                <div class="title_box">
+                  <h2><%= booking.toy.name %></h2>
                 </div>
                 <% if booking.finish? && booking.review.nil? %>
-                  <%= simple_form_for [booking, @review] do |f| %>
-                  <%= f.input :content %>
-                  <%= f.input :rating %>
-                  <%= f.submit "Rate this booking", class: 'btn-ghost' %>
-                  <% end %>
-                <% else %>
-                 <div class="product-details">
-
+                <a class="btn btn-primary m-1" data-toggle="collapse" href='<%= "#collapse_#{booking.id}" %>' role="button" aria-expanded="false" aria-controls="collapseExample">Did you like this toy?</a>
+                <div class="collapse" id="<%= "collapse_#{booking.id}" %>">
+                  <div class="card card-body">
+                    <p>You've rented this toy from <%= booking.start_date %> to <%= booking.end_date %></p>
+                      <div class="container_rating_form">
+                              <%= simple_form_for [booking, @review] do |f| %>
+                              <%= f.input :content%>
+                              <%= f.input :rating %>
+                              <%= f.submit "Rate this booking", class: 'btn-ghost' %>
+                              <% end %>
+                      </div>
+                  </div>
                 </div>
+                <div class="product-details mb-2">
+                    <a>This toy was rented <%= (Date.today - booking.end_date).to_i %> days ago</a></br>
+                  </div>
+           <!--      <#% else %>
+                  <div class="product-details">
+                     <a><%#= booking.review.rating %></a>
+                     <a>currently on vacation at your place</a>
+                  </div> -->
                 <% end %>
               </div>
-          </div>
-        <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+
+
+  </div>
+
+<!-- Sedond tab -->
+
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+
+   <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
+        <h1>My toys listed for rent</h1>
       </div>
-    <% end %>
-  </div>
-
-<!-- Rental section -->
-
-  <div>
-    <div class="title-pages" style="text-align: center; padding-top: 30px; opacity: 0.7;">
-    <h1>My toys listed for rent</h1>
-  </div>
-  <div>
-    <% @toys.each_slice(3) do |row| %>
-      <div class="row">
-        <% @toys.each do |toy| %>
-          <div class="col-md-4 mt-3">
-            <h1><%= toy.name %></h1>
-            <%= link_to "View this toy", toy_path(toy), class: 'btn-ghost' %>
-          </div>
+        <% @toys.each_slice(3) do |row| %>
+            <div class="row">
+              <% row.each do |toy| %>
+                <div class="col-md-4 mt-3">
+                  <div class="card_toy">
+                    <%= cl_image_tag toy.picture, width: 400, height: 300, crop: :fill %>
+                      <div class="title_box">
+                        <h2><%= toy.name %></h2>
+                      </div>
+                      <div class="product-details">
+                        Display something
+                      </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
         <% end %>
-      </div>
-    <% end %>
+    </div>
   </div>
 
-<!--   #end of main container -->
-</div>
+
+  </div>
+
+
+

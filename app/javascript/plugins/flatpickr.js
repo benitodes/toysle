@@ -32,16 +32,31 @@ const minimumSelection = () => {
   // select book button
   const button = document.querySelector('.btn-checkout')
   // add event listener to calendar
+  if (dateInput !== null) {
   dateInput.addEventListener("change", (e) => {
-    console.log('test')
     // if more than one date is selected by user it includes 'to' in input field
     // if it does include 'to' then user can complete booking, otherwise button is disabled
     if (dateInput.value.includes("to")) {
       button.disabled = false;
+      // get the daily price of the toy
+      const dailyPrice = document.getElementById("daily-price").value;
+      // get the number of days
+      const startDateInput = dateInput.value.split(' to ')[0];
+      const endDateInput = dateInput.value.split(' to ')[1];
+      const startDate = new Date(startDateInput);
+      const endDate = new Date(endDateInput);
+      const res = Math.abs(startDate - endDate) / 1000;
+      const days = Math.floor(res / 86400) + 1;
+      // multiply number of days by daily price
+      const totalPrice = days * dailyPrice;
+      // Insert total price in DOM
+      document.getElementById("total_price").innerHTML = totalPrice + "$";
+
     } else {
       button.disabled = true;
     }
     });
+}
 }
 
 // function to display calendar in filterbar on toys page
