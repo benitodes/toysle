@@ -6,15 +6,15 @@
 <!-- filter bar  -->
 <div class="filterbar">
 
+  <form class="filterbar" action="/toys" id="filter-form">
   <div>
     <div class="btn-ghost btn-filter">
         <p>Minimum Age</p>
     </div>
 
     <div>
-      <form action="/toys" id="age-slider-form">
-        <input id="age" data-slider-id='ageSlider' type="text" data-slider-min="5" data-slider-max="16" data-slider-step="1" data-slider-value="" />
-        <input type="submit" value="Save" id="minAgeInput" class="btn-ghost">
+        <b> 5 </b><input id="age" data-slider-id='ageSlider' name="slider[age_input]" type="text" data-slider-min="5" data-slider-max="16" data-slider-step="1" data-slider-value="" /><b> 16 </b>
+<!--         <input type="submit" value="Save" id="minAgeInput" class="btn-ghost"> -->
     </div>
   </div>
 
@@ -23,7 +23,7 @@
         <p>Price</p>
     </div>
     <div>
-          Filter by price per day: <b>€ 5 </b> <input id="price" type="text" class="span2" value="" data-slider-min="5" data-slider-max="100" data-slider-step="5" data-slider-value="[5,100]"/> <b> € 100</b>
+          Filter by price per day: <b>€ 5 </b> <input id="price" data-slider-id='priceSlider' type="text" class="span2" value="" data-slider-min="5" name="slider[price_input]" data-slider-max="100" data-slider-step="5" data-slider-value="[5,100]"/> <b> € 100</b>
         <input type="submit" value="Save" id="priceInput" class="btn-ghost">
     </div>
   </div>
@@ -47,7 +47,7 @@
         <option name="theme" value="<%= theme.name %>"><%= theme.name %></option>
       <% end %>
      </select>
-
+  </form>
   </div>
 
 </div>

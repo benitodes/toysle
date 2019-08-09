@@ -17,26 +17,23 @@ const sliderPrice = new Slider('#price', {
 });
 
 
+const form = document.getElementById('filter-form');
 // function to get value from age slider and prevend reloading page
 const minAgeSlider = () => {
-  const ageForm = document.getElementById("age-slider-form");
-  console.log(ageForm)
-  ageForm.addEventListener('submit', (event) => {
-    console.log(event)
-    event.preventDefault();
+  const ageSlider = document.getElementById("ageSlider");
+  ageSlider.addEventListener('click', (event) => {
+    form.submit();
     const minAge = document.getElementById("age").value
-    console.log(minAge);
   });
 }
 
 
 // function to get value from price slider and prevend reloading page
 const priceSlider = () => {
-
-  const priceForm = document.getElementById("price-slider-form");
-  console.log(priceForm)
-  priceForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+  const priceForm = document.getElementById("priceSlider");
+  priceForm.addEventListener('click', (event) => {
+    console.log(event);
+    form.submit();
     const priceRange = document.getElementById("price").value
     // priceRange = array of min and max price e.g. [3, 10]
   });

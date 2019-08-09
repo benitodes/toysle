@@ -32,6 +32,7 @@ const minimumSelection = () => {
   // select book button
   const button = document.querySelector('.btn-checkout')
   // add event listener to calendar
+  if (dateInput !== null) {
   dateInput.addEventListener("change", (e) => {
     console.log('test')
     // if more than one date is selected by user it includes 'to' in input field
@@ -42,6 +43,7 @@ const minimumSelection = () => {
       button.disabled = true;
     }
     });
+}
 }
 
 // function to display calendar in filterbar on toys page

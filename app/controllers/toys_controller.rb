@@ -7,8 +7,19 @@ class ToysController < ApplicationController
     @toys = Toy.geocoded
     # display all the toys near the address enter by the user
     @toys = @toys.near(params[:toy_address], 50) if params[:toy_address].present?
-    display_markers unless @toys.empty?
     # display markers on the map
+    display_markers unless @toys.empty?
+    # FILTER
+    if params.has_key?(:slider)
+      # fetch min age from age slider
+      min_age_input = params[:slider][:age_input].to_i
+      # fetch min and max price from price slider
+      min_price_input = params[:slider][:price_input][0].to_i
+      max_price_input = params[:slider][:price_input][1].to_i
+      # only show toys that match filter
+      @toys = @toys.select { |t| t.min_age >= min_age_input && t.daily_price > min_price_input }
+    end
+    raise
   end
 
   def show
