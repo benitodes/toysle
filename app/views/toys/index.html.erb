@@ -2,53 +2,40 @@
 <!-- filter bar  -->
 <div class="filterbar">
 
-  <form class="filterbar" action="/toys" id="filter-form" data-remote="true" >
-  <div>
-    <div class="btn-ghost btn-filter">
-        <p>Minimum Age</p>
-    </div>
+  <form class="d-flex" action="/toys" id="filter-form" data-remote="true" >
 
-    <div>
-        <b> 5 </b><input id="age" data-slider-id='ageSlider' name="slider[age_input]" type="text" data-slider-min="5" data-slider-max="16" data-slider-step="1" data-slider-value="" /><b> 16 </b>
+  <div class="dropdown">
+    <button class="btn-ghost btn-filter dropdown-toggle" type="button" id="ageMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Minimum Age
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div class="d-flex justify-content-between" style="margin-bottom: 8px;">
+        <div>5</div>
+        <div>16</div>
+      </div>
+        <input id="age" data-slider-id='ageSlider' name="slider[age_input]" type="text" data-slider-min="5" data-slider-max="16" data-slider-step="1" data-slider-value="" />
     </div>
   </div>
 
-  <div>
-    <div class="btn-ghost btn-filter">
-        <p>Price</p>
-    </div>
-    <div>
-          Filter by price per day: <b>€ 1 </b> <input id="price" data-slider-id='priceSlider' type="text" class="span2" value="" data-slider-min="1" name="slider[price_input]" data-slider-max="20" data-slider-step="2" data-slider-value="[1, 20]"/> <b> € 20</b>
-    </div>
-  </div>
-
-  <div id="date-form">
-    <div class="btn-ghost btn-filter">
-        <p>Dates</p>
-    </div>
-    <div>
-      <input type="text" id="rangeDate" placeholder="Please select Date Range" data-input>
+    <div class="dropdown">
+    <button class="btn-ghost btn-filter dropdown-toggle" type="button" id="ageMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Price
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div class="d-flex justify-content-between" style="margin-bottom: 8px;">
+        <div>€2</div>
+        <div>€16</div>
+      </div>
+          <input id="price" data-slider-id='priceSlider' type="text" class="span2" value="" data-slider-min="1" name="slider[price_input]" data-slider-max="20" data-slider-step="2" data-slider-value="[1, 20]"/>
     </div>
   </div>
 
-  <div>
-    <div class="btn-ghost btn-filter">
-        <p>Themes</p>
-    </div>
 
-     <select name="" id="">
-      <%= Theme.all.each do |theme| %>
-        <option name="theme" value="<%= theme.name %>"><%= theme.name %></option>
-      <% end %>
-     </select>
   </form>
-  </div>
 
 </div>
 
 </div>
-
-<%= link_to "search", search_path, remote: true  %>
 
 <div id="toys-list">
   <%= render "toys_list", toys: @toys %>

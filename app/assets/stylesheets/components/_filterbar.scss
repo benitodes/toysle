@@ -1,6 +1,7 @@
 .filterbar {
   background: white;
-  height: 100px;
+  border: 1px solid #F4F4F4;
+  height: 75px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,5 +10,11 @@
 
 .filterbar .navbar-collapse {
   flex-grow: 0;
+}
+
+.dropdown-menu {
+  padding: 32px;
+  border-radius: 5%;
+  margin-top: 8px;
 }
 

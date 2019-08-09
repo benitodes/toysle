@@ -42,7 +42,7 @@ const minimumSelection = () => {
     } else {
       button.disabled = true;
     }
-    });
+  });
 }
 }
 
