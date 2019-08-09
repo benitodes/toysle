@@ -1,19 +1,22 @@
-<div class="banner">
-  <div class="container-banner">
-    <div class="height">
-      <h1 class="marketing-title">Never let Mister Bear alone!</h1>
-      <p class="marketing-subtitle"></p>
-    </div>
-<%= form_tag toys_path, class: "home-search", method: :get do %>
-<div class="d-flex justify">
-  <%= text_field_tag :toy_address,
-  params[:toy_address],
-  class: "form-control input-home-address",
-    placeholder: "Enter an address"
-    %>
-    <%= submit_tag "Search", class: "btn btn-flat ml-4" %>
-    <% end %>
-  </div>
-</div>
-</div>
+  <% if flash[:alert] %>
+  <div id="alert" style="display:none"></div>
+  <% end %>
 
+  <div class="banner">
+    <div class="container-banner">
+      <div class="height">
+        <h1 class="marketing-title">Never let Mister Bear alone!</h1>
+        <p class="marketing-subtitle"></p>
+      </div>
+      <%= form_tag toys_path, class: "home-search", method: :get do %>
+      <div class="d-flex justify">
+        <%= text_field_tag :toy_address,
+        params[:toy_address],
+        class: "form-control input-home-address",
+          placeholder: "Enter an address"
+          %>
+          <%= submit_tag "Search", class: "btn btn-flat ml-4" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
